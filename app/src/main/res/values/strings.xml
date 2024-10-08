@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">FoodDiary</string>
+    <string name="profile_height">Height (cm)</string>
+    <string name="profile_weight">Weight (kg)</string>
+    <string name="profile_gender">Gender</string>
+    <string name="profile_age">Age</string>
+    <string name="profile_activity">Activity</string>
+    <string name="profile_goal">Goal</string>
+    <string name="profile_metabolic">Basal Metabolic Rate</string>
+    <string name="profile_mass_index">Body Mass Index</string>
+    <string name="profile_water">Water Requirement (ml)</string>
 </resources>
