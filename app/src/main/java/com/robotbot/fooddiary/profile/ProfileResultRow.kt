@@ -13,6 +13,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.LocalFireDepartment
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -34,35 +36,36 @@ fun ProfileResultRow(
     icon: ImageVector,
     onClick: () -> Unit = {},
     modifier: Modifier = Modifier
-        .background(color = Color.Cyan)
 ) {
-    Row(verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(horizontal = 10.dp)
-            .height(65.dp)
-            .clickable(onClick = onClick)
-    ) {
-        Icon(
-//            painter = painterResource(R.drawable.baseline_local_fire_department_20),
-            contentDescription = null,
-            imageVector = icon,
-            modifier = Modifier
-                .size(35.dp)
-        )
-        Column(modifier = Modifier
-            .weight(1f)
-            .padding(start = 20.dp)
+    Surface(color = MaterialTheme.colorScheme.primary) {
+        Row(verticalAlignment = Alignment.CenterVertically,
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(horizontal = 10.dp)
+                .height(65.dp)
+                .clickable(onClick = onClick)
         ) {
-            Text(text = stringResource(title))
-            Text(value)
+            Icon(
+//            painter = painterResource(R.drawable.baseline_local_fire_department_20),
+                contentDescription = null,
+                imageVector = icon,
+                modifier = Modifier
+                    .size(35.dp)
+            )
+            Column(modifier = Modifier
+                .weight(1f)
+                .padding(start = 20.dp)
+            ) {
+                Text(text = stringResource(title))
+                Text(value)
+            }
+            Icon(imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                contentDescription = null,
+                Modifier
+                    .padding(start = 5.dp)
+                    .size(30.dp)
+                    .alpha(0.45f))
         }
-        Icon(imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
-            contentDescription = null,
-            Modifier
-                .padding(start = 5.dp)
-                .size(30.dp)
-                .alpha(0.45f))
     }
 }
 

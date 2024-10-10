@@ -1,7 +1,10 @@
 package com.robotbot.fooddiary.profile
 
+import android.content.res.Configuration
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -13,7 +16,7 @@ import com.robotbot.fooddiary.ui.theme.FoodDiaryTheme
 fun ProfileInfoColumn(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(5.dp)
+        verticalArrangement = Arrangement.spacedBy(5.dp),
     ) {
         ProfileInfoRow(
             title = R.string.profile_height,
@@ -42,7 +45,9 @@ fun ProfileInfoColumn(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true,
+    uiMode = Configuration.UI_MODE_NIGHT_NO or Configuration.UI_MODE_TYPE_NORMAL
+)
 @Composable
 fun ProfileInfoColumnPreview() {
     FoodDiaryTheme {

@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,25 +28,27 @@ import com.robotbot.fooddiary.ui.theme.FoodDiaryTheme
 fun ProfileInfoRowClickable(
     title: Int,
     value: String,
-    modifier: Modifier = Modifier.background(color = Color.Cyan),
+    modifier: Modifier = Modifier,
     onClick: () -> Unit = {}
 ) {
-    Row(verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(horizontal = 10.dp)
-            .height(50.dp)
-            .clickable(onClick = onClick)
-    ) {
-        Text(text = stringResource(title),
-            modifier = Modifier.weight(1f))
-        Text(value)
-        Icon(imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
-            contentDescription = null,
-            Modifier
-                .padding(start = 5.dp)
-                .size(30.dp)
-                .alpha(0.45f))
+    Surface(color = MaterialTheme.colorScheme.primary) {
+        Row(verticalAlignment = Alignment.CenterVertically,
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(horizontal = 10.dp)
+                .height(50.dp)
+                .clickable(onClick = onClick)
+        ) {
+            Text(text = stringResource(title),
+                modifier = Modifier.weight(1f))
+            Text(value)
+            Icon(imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                contentDescription = null,
+                Modifier
+                    .padding(start = 5.dp)
+                    .size(30.dp)
+                    .alpha(0.45f))
+        }
     }
 }
 

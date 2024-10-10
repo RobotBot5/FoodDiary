@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,17 +22,19 @@ import com.robotbot.fooddiary.ui.theme.FoodDiaryTheme
 fun ProfileInfoRow(
     title: Int,
     value: String,
-    modifier: Modifier = Modifier.background(color = Color.Cyan)
+    modifier: Modifier = Modifier
 ) {
-    Row(verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier
-        .fillMaxWidth()
-        .padding(horizontal = 10.dp)
-        .height(50.dp)
-    ) {
-        Text(text = stringResource(title),
-            modifier = Modifier.weight(1f))
-        Text(value)
+    Surface(color = MaterialTheme.colorScheme.primary) {
+        Row(verticalAlignment = Alignment.CenterVertically,
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(horizontal = 10.dp)
+                .height(50.dp)
+        ) {
+            Text(text = stringResource(title),
+                modifier = Modifier.weight(1f))
+            Text(value)
+        }
     }
 }
 
