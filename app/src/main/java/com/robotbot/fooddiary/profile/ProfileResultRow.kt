@@ -37,7 +37,7 @@ fun ProfileResultRow(
     onClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    Surface(color = MaterialTheme.colorScheme.primary) {
+    Surface(color = MaterialTheme.colorScheme.secondaryContainer) {
         Row(verticalAlignment = Alignment.CenterVertically,
             modifier = modifier
                 .fillMaxWidth()

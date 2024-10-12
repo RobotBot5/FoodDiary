@@ -31,7 +31,7 @@ fun ProfileInfoRowClickable(
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {}
 ) {
-    Surface(color = MaterialTheme.colorScheme.primary) {
+    Surface(color = MaterialTheme.colorScheme.secondaryContainer) {
         Row(verticalAlignment = Alignment.CenterVertically,
             modifier = modifier
                 .fillMaxWidth()
