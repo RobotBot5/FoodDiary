@@ -10,4 +10,14 @@
     <string name="profile_metabolic">Basal Metabolic Rate</string>
     <string name="profile_mass_index">Body Mass Index</string>
     <string name="profile_water">Water Requirement (ml)</string>
+    <string name="list_carbohydrate">Carbohydrate</string>
+    <string name="list_protein">Protein</string>
+    <string name="list_fat">Fat</string>
+    <string name="list_calories">Calories</string>
+    <string name="list_breakfast">Breakfast</string>
+    <string name="list_lunch">Lunch</string>
+    <string name="list_dinner">Dinner</string>
+    <string name="list_today">Today</string>
+    <string name="profile_profile">Profile</string>
+    <string name="profile_results">Results</string>
 </resources>

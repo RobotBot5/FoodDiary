@@ -17,18 +17,34 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.robotbot.fooddiary.list.ListScreen
 import com.robotbot.fooddiary.ui.theme.FoodDiaryTheme
 
 @Composable
 fun ProfileFullScreen(modifier: Modifier = Modifier) {
+
+    var selectedIndex by rememberSaveable { mutableIntStateOf(0) }
+
     Scaffold(modifier = modifier,
         topBar = { ProfileNavigation(
-            modifier = Modifier.statusBarsPadding()
+            modifier = Modifier.statusBarsPadding(),
+            onNavigateToProfile = { selectedIndex = 0 },
+            onNavigateToAnalytics = { selectedIndex = 1 },
+            onNavigateToList = { selectedIndex = 2 },
+            selectedIndex = selectedIndex
         ) },
         content = { padding ->
-            ProfileScreen(modifier = Modifier.padding(padding))
+            when (selectedIndex) {
+                0 -> ProfileScreen(modifier = Modifier.padding(padding))
+                2 -> ListScreen(modifier = Modifier.padding(padding))
+            }
         },
         bottomBar = {
             ProfileBottomBar(modifier = Modifier.navigationBarsPadding())

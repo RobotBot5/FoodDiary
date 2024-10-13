@@ -41,10 +41,13 @@ import com.robotbot.fooddiary.R
 import com.robotbot.fooddiary.ui.theme.FoodDiaryTheme
 
 @Composable
-fun ProfileNavigation(modifier: Modifier = Modifier) {
-
-    var selectedIndex by remember { mutableIntStateOf(0) }
-
+fun ProfileNavigation(
+    modifier: Modifier = Modifier,
+    onNavigateToProfile: () -> Unit,
+    onNavigateToAnalytics: () -> Unit,
+    onNavigateToList: () -> Unit,
+    selectedIndex: Int
+) {
     Surface(color = MaterialTheme.colorScheme.primaryContainer) {
         Column(modifier = modifier.fillMaxWidth()) {
             Box(
@@ -74,19 +77,19 @@ fun ProfileNavigation(modifier: Modifier = Modifier) {
                 NavigationItem(
                     icon = Icons.Default.Person,
                     isSelected = selectedIndex == 0,
-                    onClick = { selectedIndex = 0 },
+                    onClick = onNavigateToProfile,
                     modifier = Modifier.weight(1f)
                 )
                 NavigationItem(
                     icon = Icons.Default.Analytics,
                     isSelected = selectedIndex == 1,
-                    onClick = { selectedIndex = 1 },
+                    onClick = onNavigateToAnalytics,
                     modifier = Modifier.weight(1f)
                 )
                 NavigationItem(
                     icon = Icons.Default.TabletMac,
                     isSelected = selectedIndex == 2,
-                    onClick = { selectedIndex = 2 },
+                    onClick = onNavigateToList,
                     modifier = Modifier.weight(1f)
                 )
             }
@@ -132,6 +135,11 @@ private fun NavigationItem(
 @Composable
 fun ProfileNavigationPreview(modifier: Modifier = Modifier) {
     FoodDiaryTheme {
-        ProfileNavigation()
+        ProfileNavigation(
+            onNavigateToProfile = {},
+            onNavigateToAnalytics = {},
+            onNavigateToList = {},
+            selectedIndex = 0
+        )
     }
 }
