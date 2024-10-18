@@ -20,4 +20,6 @@
     <string name="list_today">Today</string>
     <string name="profile_profile">Profile</string>
     <string name="profile_results">Results</string>
+    <string name="analytics_weight">Weight</string>
+    <string name="analytics_calorie">Calorie</string>
 </resources>
