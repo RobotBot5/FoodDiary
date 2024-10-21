@@ -1,4 +1,4 @@
-package com.robotbot.fooddiary.list
+package com.robotbot.fooddiary.ui.list
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

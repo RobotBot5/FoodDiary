@@ -1,4 +1,4 @@
-package com.robotbot.fooddiary.profile
+package com.robotbot.fooddiary.ui.profile
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding

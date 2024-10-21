@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">FoodDiary</string>
     <string name="app_title">Food Tracker</string>
+    <string name="profile_name">Name</string>
     <string name="profile_height">Height (cm)</string>
     <string name="profile_weight">Weight (kg)</string>
     <string name="profile_gender">Gender</string>

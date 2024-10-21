@@ -1,4 +1,4 @@
-package com.robotbot.fooddiary.analytics
+package com.robotbot.fooddiary.ui.analytics
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
