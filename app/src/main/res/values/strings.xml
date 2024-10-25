@@ -11,6 +11,7 @@
     <string name="profile_metabolic">Basal Metabolic Rate</string>
     <string name="profile_mass_index">Body Mass Index</string>
     <string name="profile_water">Water Requirement (ml)</string>
+    <string name="profile_registration">Create New User</string>
     <string name="list_carbohydrate">Carbohydrate</string>
     <string name="list_protein">Protein</string>
     <string name="list_fat">Fat</string>
@@ -23,4 +24,14 @@
     <string name="profile_results">Results</string>
     <string name="analytics_weight">Weight</string>
     <string name="analytics_calorie">Calorie</string>
+    <string name="activity_sedentary">Sedentary</string>
+    <string name="activity_light">Light</string>
+    <string name="activity_moderate">Moderate</string>
+    <string name="activity_active">Active</string>
+    <string name="activity_very_active">Very active</string>
+    <string name="activity_extra_active">Extra active</string>
+    <string name="activity_error">Activity Parse Error</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="gender_error">Gender Parse Error</string>
 </resources>

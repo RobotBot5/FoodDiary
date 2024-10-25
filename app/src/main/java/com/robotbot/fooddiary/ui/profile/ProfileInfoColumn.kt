@@ -8,12 +8,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.robotbot.fooddiary.R
 import com.robotbot.fooddiary.ui.theme.FoodDiaryTheme
 import com.robotbot.fooddiary.ui.viewmodel.UserViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.robotbot.fooddiary.data.models.Activity
+import com.robotbot.fooddiary.data.models.Gender
+import com.robotbot.fooddiary.data.models.User
+import com.robotbot.fooddiary.ui.viewmodel.UserViewModelFactory
 
 @Composable
 fun ProfileInfoColumn(
@@ -41,7 +46,7 @@ fun ProfileInfoColumn(
         )
         ProfileInfoRow(
             title = R.string.profile_gender,
-            value = user?.gender?.name ?: "Unknown"
+            value = stringResource(user?.gender?.getFormattedLabel() ?: R.string.gender_error)
         )
         ProfileInfoRow(
             title = R.string.profile_age,
@@ -49,7 +54,7 @@ fun ProfileInfoColumn(
         )
         ProfileInfoRowClickable(
             title = R.string.profile_activity,
-            value = user?.activity?.name ?: "Unknown"
+            value = stringResource(user?.activity?.getFormattedLabel() ?: R.string.activity_error)
         )
         ProfileInfoRowClickable(
             title = R.string.profile_goal,
@@ -63,7 +68,18 @@ fun ProfileInfoColumn(
 )
 @Composable
 fun ProfileInfoColumnPreview() {
+    val mockUser = User(
+        name = "Ilya Kazakov",
+        height = 177,
+        weight = 80,
+        gender = Gender.Male,
+        age = 30,
+        activity = Activity.Moderate
+    )
+    val factory = UserViewModelFactory(mockUser)
+    val viewModel: UserViewModel = viewModel(factory = factory)
+
     FoodDiaryTheme {
-        ProfileInfoColumn(viewModel())
+        ProfileInfoColumn(viewModel)
     }
 }

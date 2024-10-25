@@ -22,7 +22,7 @@ fun ProfileInfoRow(
     value: String,
     modifier: Modifier = Modifier
 ) {
-    Surface(color = MaterialTheme.colorScheme.secondaryContainer) {
+    Surface(color = MaterialTheme.colorScheme.surfaceVariant) {
         Row(verticalAlignment = Alignment.CenterVertically,
             modifier = modifier
                 .fillMaxWidth()
