@@ -21,7 +21,7 @@ import com.robotbot.fooddiary.data.models.User
 import com.robotbot.fooddiary.ui.viewmodel.UserViewModelFactory
 
 @Composable
-fun ProfileInfoColumn(
+fun InfoColumnProfile(
     userViewModel: UserViewModel,
     modifier: Modifier = Modifier
 ) {
@@ -36,27 +36,27 @@ fun ProfileInfoColumn(
             return
         }
 
-        ProfileInfoRow(
+        InfoRowProfile(
             title = R.string.profile_height,
             value = user?.height.toString()
         )
-        ProfileInfoRow(
+        InfoRowProfile(
             title = R.string.profile_weight,
             value = user?.weight.toString()
         )
-        ProfileInfoRow(
+        InfoRowProfile(
             title = R.string.profile_gender,
             value = stringResource(user?.gender?.getFormattedLabel() ?: R.string.gender_error)
         )
-        ProfileInfoRow(
+        InfoRowProfile(
             title = R.string.profile_age,
             value = user?.age.toString()
         )
-        ProfileInfoRowClickable(
+        InfoRowClickableProfile(
             title = R.string.profile_activity,
             value = stringResource(user?.activity?.getFormattedLabel() ?: R.string.activity_error)
         )
-        ProfileInfoRowClickable(
+        InfoRowClickableProfile(
             title = R.string.profile_goal,
             value = "Maintain weight"
         )
@@ -80,6 +80,6 @@ fun ProfileInfoColumnPreview() {
     val viewModel: UserViewModel = viewModel(factory = factory)
 
     FoodDiaryTheme {
-        ProfileInfoColumn(viewModel)
+        InfoColumnProfile(viewModel)
     }
 }

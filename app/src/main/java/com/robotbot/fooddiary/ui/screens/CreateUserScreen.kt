@@ -1,4 +1,4 @@
-package com.robotbot.fooddiary.ui.profile
+package com.robotbot.fooddiary.ui.screens
 
 import android.content.res.Configuration
 import androidx.compose.foundation.BorderStroke
@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
@@ -31,9 +30,6 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -44,16 +40,16 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.robotbot.fooddiary.R
 import com.robotbot.fooddiary.data.models.Activity
 import com.robotbot.fooddiary.data.models.Gender
-import com.robotbot.fooddiary.data.models.User
 import com.robotbot.fooddiary.ui.theme.FoodDiaryTheme
 import com.robotbot.fooddiary.ui.viewmodel.UserViewModel
 
 @Composable
-fun ProfileCreateUser(
+fun CreateUserScreen(
     userViewModel: UserViewModel,
     modifier: Modifier = Modifier
 ) {
     val userPrinting by userViewModel.userPrinting.collectAsState()
+
     Surface(modifier = modifier.fillMaxSize()) {
         Column(
             modifier = Modifier
@@ -114,12 +110,18 @@ fun ProfileCreateUser(
                         selected = userPrinting.gender == Gender.Male,
                         onClick = { userViewModel.updateGender(Gender.Male) }
                     )
-                    Text(text = stringResource(Gender.Male.getFormattedLabel()))
+                    Text(
+                        text = stringResource(Gender.Male.getFormattedLabel()),
+                        style = MaterialTheme.typography.labelLarge
+                    )
                     RadioButton(
                         selected = userPrinting.gender == Gender.Female,
                         onClick = { userViewModel.updateGender(Gender.Female) }
                     )
-                    Text(text = stringResource(Gender.Female.getFormattedLabel()))
+                    Text(
+                        text = stringResource(Gender.Female.getFormattedLabel()),
+                        style = MaterialTheme.typography.labelLarge
+                    )
                 }
             }
 
@@ -160,6 +162,13 @@ fun ProfileCreateUser(
             ) {
                 Text(text = "Save")
             }
+
+            if (userViewModel.errorMessage != 0) {
+                Text(
+                    text = stringResource(userViewModel.errorMessage),
+                    color = MaterialTheme.colorScheme.error
+                )
+            }
         }
     }
 
@@ -171,7 +180,7 @@ fun ProfileCreateUser(
 @Composable
 private fun ProfileCreateUserPreviewNight() {
     FoodDiaryTheme {
-        ProfileCreateUser(viewModel())
+        CreateUserScreen(viewModel())
     }
 }
 
@@ -181,6 +190,6 @@ private fun ProfileCreateUserPreviewNight() {
 @Composable
 private fun ProfileCreateUserPreviewLight() {
     FoodDiaryTheme {
-        ProfileCreateUser(viewModel())
+        CreateUserScreen(viewModel())
     }
 }

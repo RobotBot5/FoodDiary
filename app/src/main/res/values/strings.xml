@@ -34,4 +34,8 @@
     <string name="gender_male">Male</string>
     <string name="gender_female">Female</string>
     <string name="gender_error">Gender Parse Error</string>
+    <string name="error_create_user_name">Incorrect name value!</string>
+    <string name="error_create_user_height">Incorrect height value!</string>
+    <string name="error_create_user_weight">Incorrect weight value!</string>
+    <string name="error_create_user_age">Incorrect age value!</string>
 </resources>

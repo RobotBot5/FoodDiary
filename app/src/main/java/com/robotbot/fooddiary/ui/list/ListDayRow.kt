@@ -22,10 +22,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.robotbot.fooddiary.R
 import com.robotbot.fooddiary.ui.theme.FoodDiaryTheme
+import com.robotbot.fooddiary.ui.theme.LocalExtendedColors
 
 @Composable
 fun ListDayRow(modifier: Modifier = Modifier) {
-    Surface(color = MaterialTheme.colorScheme.secondaryContainer) {
+    Surface(color = MaterialTheme.colorScheme.surfaceVariant) {
         Column(modifier = modifier.padding(horizontal = 10.dp, vertical = 10.dp)) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -33,20 +34,20 @@ fun ListDayRow(modifier: Modifier = Modifier) {
             ) {
                 ProgressColumn(
                     title = R.string.list_carbohydrate,
-                    color = Color.Black,
-                    trackColor = Color.Red,
+                    color = LocalExtendedColors.current.carbohydrateColor,
+                    trackColor = LocalExtendedColors.current.carbohydrateBackgroundColor,
                     modifier = Modifier.weight(1f)
                 )
                 ProgressColumn(
                     title = R.string.list_protein,
-                    color = Color.Black,
-                    trackColor = Color.Blue,
+                    color = LocalExtendedColors.current.proteinColor,
+                    trackColor = LocalExtendedColors.current.proteinBackgroundColor,
                     modifier = Modifier.weight(1f)
                 )
                 ProgressColumn(
                     title = R.string.list_fat,
-                    color = Color.Black,
-                    trackColor = Color.Yellow,
+                    color = LocalExtendedColors.current.fatColor,
+                    trackColor = LocalExtendedColors.current.fatBackgroundColor,
                     modifier = Modifier.weight(1f)
                 )
             }
@@ -58,13 +59,16 @@ fun ListDayRow(modifier: Modifier = Modifier) {
                     progress = {
                         0.2f
                     },
-                    color = Color.Black,
-                    trackColor = Color.Blue,
+                    color = LocalExtendedColors.current.proteinColor,
+                    trackColor = LocalExtendedColors.current.proteinBackgroundColor,
                     modifier = Modifier
                         .fillMaxWidth()
                         .clip(CircleShape)
                 )
-                Text("0 / 2228 kcal")
+                Text(
+                    text =  "0 / 2228 kcal",
+                    color = LocalExtendedColors.current.proteinColor
+                )
             }
         }
     }

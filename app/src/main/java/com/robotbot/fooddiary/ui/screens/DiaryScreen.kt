@@ -1,5 +1,6 @@
-package com.robotbot.fooddiary.ui.list
+package com.robotbot.fooddiary.ui.screens
 
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,6 +12,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForwardIos
 import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -18,11 +21,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.robotbot.fooddiary.R
-import com.robotbot.fooddiary.ui.profile.ProfileSection
+import com.robotbot.fooddiary.ui.list.ListDayRow
+import com.robotbot.fooddiary.ui.list.ListMeal
+import com.robotbot.fooddiary.ui.profile.SectionProfile
 import com.robotbot.fooddiary.ui.theme.FoodDiaryTheme
 
 @Composable
-fun ListScreen(modifier: Modifier = Modifier) {
+fun DiaryScreen(modifier: Modifier = Modifier) {
     val scrollState = rememberScrollState()
     Column(modifier = modifier
         .verticalScroll(scrollState)
@@ -37,24 +42,27 @@ fun ListScreen(modifier: Modifier = Modifier) {
                 imageVector = Icons.Default.ArrowBackIosNew,
                 contentDescription = null
             )
-            Text(stringResource(R.string.list_today))
+            Text(
+                text = stringResource(R.string.list_today),
+                style = MaterialTheme.typography.titleMedium
+            )
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.ArrowForwardIos,
                 contentDescription = null
             )
         }
         ListDayRow()
-        ProfileSection(
+        SectionProfile(
             title = R.string.list_breakfast
         ) {
             ListMeal()
         }
-        ProfileSection(
+        SectionProfile(
             title = R.string.list_lunch
         ) {
             ListMeal()
         }
-        ProfileSection(
+        SectionProfile(
             title = R.string.list_dinner
         ) {
             ListMeal()
@@ -63,10 +71,22 @@ fun ListScreen(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Composable
-private fun ListScreenPreview() {
+private fun ListScreenPreviewLight() {
     FoodDiaryTheme {
-        ListScreen()
+        Surface {
+            DiaryScreen()
+        }
+    }
+}
+
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+private fun ListScreenPreviewDark() {
+    FoodDiaryTheme {
+        Surface {
+            DiaryScreen()
+        }
     }
 }

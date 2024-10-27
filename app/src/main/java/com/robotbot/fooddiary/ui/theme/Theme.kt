@@ -9,7 +9,9 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
@@ -249,6 +251,26 @@ data class ColorFamily(
     val onColorContainer: Color
 )
 
+data class ExtendedColors(
+    val proteinColor: Color,
+    val proteinBackgroundColor: Color,
+    val fatColor: Color,
+    val fatBackgroundColor: Color,
+    val carbohydrateColor: Color,
+    val carbohydrateBackgroundColor: Color
+)
+
+val LocalExtendedColors = staticCompositionLocalOf {
+    ExtendedColors(
+        proteinColor = ProteinColor,
+        proteinBackgroundColor = ProteinBackgroundColor,
+        fatColor = FatColor,
+        fatBackgroundColor = FatBackgroundColor,
+        carbohydrateColor = CarbohydrateColor,
+        carbohydrateBackgroundColor = CarbohydrateBackgroundColor
+    )
+}
+
 val unspecified_scheme = ColorFamily(
     Color.Unspecified, Color.Unspecified, Color.Unspecified, Color.Unspecified
 )
@@ -269,10 +291,20 @@ fun FoodDiaryTheme(
         darkTheme -> darkScheme
         else -> lightScheme
     }
-
-    MaterialTheme(
-        colorScheme = colorScheme,
-//        typography = AppTypography,
-        content = content
+    val extendedColors = ExtendedColors(
+        proteinColor = ProteinColor,
+        proteinBackgroundColor = ProteinBackgroundColor,
+        fatColor = FatColor,
+        fatBackgroundColor = FatBackgroundColor,
+        carbohydrateColor = CarbohydrateColor,
+        carbohydrateBackgroundColor = CarbohydrateBackgroundColor
     )
+
+    CompositionLocalProvider(LocalExtendedColors provides extendedColors) {
+        MaterialTheme(
+            colorScheme = colorScheme,
+//        typography = AppTypography,
+            content = content
+        )
+    }
 }

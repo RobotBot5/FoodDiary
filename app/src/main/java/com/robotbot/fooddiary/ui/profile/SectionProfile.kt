@@ -2,7 +2,6 @@ package com.robotbot.fooddiary.ui.profile
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -11,12 +10,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ProfileSection(
+fun SectionProfile(
     title: Int,
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit
 ) {
-    Column {
+    Column(modifier = modifier) {
         Text(
             text = stringResource(title),
             style = MaterialTheme.typography.titleMedium,

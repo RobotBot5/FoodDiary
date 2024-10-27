@@ -1,4 +1,4 @@
-package com.robotbot.fooddiary.ui.profile
+package com.robotbot.fooddiary.ui.screens
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -13,6 +13,9 @@ import com.robotbot.fooddiary.R
 import com.robotbot.fooddiary.data.models.Activity
 import com.robotbot.fooddiary.data.models.Gender
 import com.robotbot.fooddiary.data.models.User
+import com.robotbot.fooddiary.ui.profile.InfoColumnProfile
+import com.robotbot.fooddiary.ui.profile.ResultColumnProfile
+import com.robotbot.fooddiary.ui.profile.SectionProfile
 import com.robotbot.fooddiary.ui.theme.FoodDiaryTheme
 import com.robotbot.fooddiary.ui.viewmodel.UserViewModel
 import com.robotbot.fooddiary.ui.viewmodel.UserViewModelFactory
@@ -27,11 +30,11 @@ fun ProfileScreen(
         .verticalScroll(scrollState)
         .padding(bottom = 15.dp)
     ) {
-        ProfileSection(R.string.profile_profile) {
-            ProfileInfoColumn(userViewModel)
+        SectionProfile(R.string.profile_profile) {
+            InfoColumnProfile(userViewModel)
         }
-        ProfileSection(R.string.profile_results) {
-            ProfileResultColumn()
+        SectionProfile(R.string.profile_results) {
+            ResultColumnProfile()
         }
     }
 }

@@ -8,7 +8,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.robotbot.fooddiary.ui.profile.ProfileFullScreen
+import com.robotbot.fooddiary.ui.screens.FullScreen
 import com.robotbot.fooddiary.ui.theme.FoodDiaryTheme
 
 class MainActivity : ComponentActivity() {
@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FoodDiaryTheme {
-                ProfileFullScreen()
+                FullScreen()
             }
         }
     }

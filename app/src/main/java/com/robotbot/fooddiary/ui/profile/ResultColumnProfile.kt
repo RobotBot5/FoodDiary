@@ -14,22 +14,22 @@ import com.robotbot.fooddiary.R
 import com.robotbot.fooddiary.ui.theme.FoodDiaryTheme
 
 @Composable
-fun ProfileResultColumn(modifier: Modifier = Modifier) {
+fun ResultColumnProfile(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(5.dp)
     ) {
-        ProfileResultRow(
+        ResultRowProfile(
             title = R.string.profile_metabolic,
             value = "1620 kcal",
             icon = Icons.Filled.LocalFireDepartment
         )
-        ProfileResultRow(
+        ResultRowProfile(
             title = R.string.profile_mass_index,
             value = "19.86",
             icon = Icons.Filled.Egg
         )
-        ProfileResultRow(
+        ResultRowProfile(
             title = R.string.profile_water,
             value = "2250",
             icon = Icons.Filled.WaterDrop
@@ -41,6 +41,6 @@ fun ProfileResultColumn(modifier: Modifier = Modifier) {
 @Composable
 fun ProfileResultColumnPreview() {
     FoodDiaryTheme {
-        ProfileResultColumn()
+        ResultColumnProfile()
     }
 }

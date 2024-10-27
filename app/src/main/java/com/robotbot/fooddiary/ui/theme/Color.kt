@@ -218,6 +218,13 @@ val surfaceContainerDarkHighContrast = Color(0xFF222017)
 val surfaceContainerHighDarkHighContrast = Color(0xFF2C2A21)
 val surfaceContainerHighestDarkHighContrast = Color(0xFF37352B)
 
+// Цвета для белков, жиров и углеводов
+val ProteinColor = Color(0xFF3F51B5)
+val ProteinBackgroundColor = Color(0x803F51B5)
+val FatColor = Color(0xFFFF9800)
+val FatBackgroundColor = Color(0x80FF9800)
+val CarbohydrateColor = Color(0xFFE91E63)
+val CarbohydrateBackgroundColor = Color(0x80E91E63)
 
 
 

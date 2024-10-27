@@ -22,10 +22,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.robotbot.fooddiary.R
+import com.robotbot.fooddiary.ui.theme.LocalExtendedColors
 
 @Composable
 fun ListMeal(modifier: Modifier = Modifier) {
-    Surface(color = MaterialTheme.colorScheme.secondaryContainer) {
+    Surface(color = MaterialTheme.colorScheme.surfaceVariant) {
         Column(
             modifier = modifier
                 .fillMaxWidth()
@@ -59,19 +60,19 @@ fun ListMeal(modifier: Modifier = Modifier) {
             ) {
                 InfoColumn(
                     title = R.string.list_carbohydrate,
-                    color = Color.Red
+                    color = LocalExtendedColors.current.carbohydrateColor
                 )
                 InfoColumn(
                     title = R.string.list_protein,
-                    color = Color.Blue
+                    color = LocalExtendedColors.current.proteinColor
                 )
                 InfoColumn(
                     title = R.string.list_fat,
-                    color = Color.Yellow
+                    color = LocalExtendedColors.current.fatColor
                 )
                 InfoColumn(
                     title = R.string.list_calories,
-                    color = Color.Blue
+                    color = LocalExtendedColors.current.proteinColor
                 )
             }
         }
